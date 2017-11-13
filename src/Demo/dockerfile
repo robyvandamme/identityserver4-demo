@@ -1,0 +1,11 @@
+FROM microsoft/aspnetcore-build:2 as build-env
+WORKDIR /Demo
+COPY . .
+RUN dotnet restore
+RUN dotnet publish -r linux-x64 -o /app
+
+# Run stage
+FROM microsoft/aspnetcore:2
+WORKDIR /app
+COPY --from=build-env /app .
+ENTRYPOINT ["dotnet", "Demo.dll"]
