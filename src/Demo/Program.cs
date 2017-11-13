@@ -8,17 +8,25 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace demo
+namespace Demo
 {
     public class Program
     {
+        private static IConfigurationRoot Configuration { get; set; }
+
         public static void Main(string[] args)
         {
+            var builder = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .AddCommandLine(args);
+            Configuration = builder.Build();
+
             BuildWebHost(args).Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(Configuration)
                 .UseStartup<Startup>()
                 .Build();
     }

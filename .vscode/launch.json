@@ -10,8 +10,8 @@
       "request": "launch",
       "preLaunchTask": "build",
       "program": "${workspaceFolder}/src/Demo/bin/Debug/netcoreapp2.0/Demo.dll",
-      "args": [],
-      "cwd": "${workspaceFolder}",
+      "args": ["server.urls=http://localhost:8080"],
+      "cwd": "${workspaceFolder}/src/Demo",
       "stopAtEntry": false,
       "internalConsoleOptions": "openOnSessionStart",
       "launchBrowser": {
