@@ -51,7 +51,6 @@ namespace Demo
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
-                    // TODO: use correct ports, will probably not be 5001
                     RedirectUris = { "http://localhost:8081/swagger/o2c.html" },
                     PostLogoutRedirectUris = { "http://localhost:8081/swagger" },
                     AllowedCorsOrigins = { "http://localhost:8081" },
